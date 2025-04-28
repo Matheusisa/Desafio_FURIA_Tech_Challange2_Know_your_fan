@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# 🎮 Know Your Fan - Challenge 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Sobre o Projeto
 
-## Available Scripts
+O **Know Your Fan** é uma solução inovadora focada em coletar, analisar e entender o perfil dos fãs de e-sports, com o objetivo de oferecer experiências mais personalizadas e exclusivas.
 
-In the project directory, you can run:
+Desenvolvido como parte do desafio técnico para a vaga de Assistente de Engenharia de Software na **FURIA Tech**, este projeto explora a integração de coleta de dados, validação de identidade via inteligência artificial e conexão com redes sociais, proporcionando uma visão 360° do fã.
 
-### `npm start`
+## 🎯 Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Cadastro de Fã:
+- Nome completo
+- Endereço
+- CPF
+- Interesses em e-sports, eventos e atividades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Upload de Documentos:
+- Upload seguro e validação de identidade via AI (OCR/Reconhecimento).
 
-### `npm test`
+### Integração com Redes Sociais:
+- Vinculação de perfis (Instagram, Twitter, etc).
+- Leitura de interações e páginas de interesse em e-sports.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Validação de Links:
+- Análise automática de links fornecidos para confirmar conexão com o mundo dos e-sports.
 
-### `npm run build`
+### Dashboard Pessoal:
+- Exibição dos dados coletados para o próprio usuário revisar.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧩 Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Front-end:** React.js
+- **Back-end:** Node.js + Express
+- **Banco de Dados:** Firebase Firestore
+- **Upload de Documentos:** Firebase Storage
+- **Validação de Documentos e Links com IA:**
+  - Google Vision AI
+  - OpenAI API (análise semântica)
+- **Autenticação OAuth:**
+  - Instagram API
+  - Twitter API
+- **Hospedagem:** Render / Firebase Hosting
+- **Versionamento:** Git & GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗️ Estrutura do Projeto
 
-### `npm run eject`
+```
+know-your-fan/
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── services/
+│   ├── app.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   ├── package.json
+├── README.md
+└── docker-compose.yml (opcional para deploy local)
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 Como Rodar o Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pré-requisitos
+- Node.js (v18 ou superior)
+- NPM ou Yarn
+- Conta no Firebase
+- (Opcional) Conta no Google Cloud para Vision AI
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Instalação
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/know-your-fan.git
 
-## Learn More
+# Acesse o backend
+cd know-your-fan/backend
+npm install
+npm run dev
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Em outra aba, acesse o frontend
+cd ../frontend
+npm install
+npm run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎥 Demonstração em Vídeo
 
-### Code Splitting
+Assista como o fã pode registrar seu perfil completo em poucos minutos:  
+🔗 [Link para o vídeo no YouTube](#) (substituir pelo link final)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📄 Referências e Inspirações
 
-### Analyzing the Bundle Size
+- Estratégias de "Know Your Customer" (KYC) aplicadas ao universo de e-sports.
+- API Google Vision OCR.
+- OAuth 2.0 padrão para integração de redes sociais.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 👨‍💻 Autor
 
-### Making a Progressive Web App
+Desenvolvido por **Matheus [Seu Sobrenome]**, entusiasta de tecnologia, inovação e fã de e-sports!  
+A cada desafio, um novo aprendizado. Let's FURIA! 🔥🐆
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎯 Conclusão
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+O **Know Your Fan** transforma dados em experiências personalizadas, ajudando a **FURIA** a se conectar de forma ainda mais próxima e verdadeira com seus fãs!
