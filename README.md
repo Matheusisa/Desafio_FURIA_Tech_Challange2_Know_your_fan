@@ -1,107 +1,127 @@
-# 🎮 Know Your Fan - Challenge 2
+# 👤 Know Your Fan – Challenge 2
 
-## 📌 Sobre o Projeto
+## 🧠 Sobre o Projeto
 
-O **Know Your Fan** é uma solução inovadora focada em coletar, analisar e entender o perfil dos fãs de e-sports, com o objetivo de oferecer experiências mais personalizadas e exclusivas.
+O **Know Your Fan** é uma aplicação desenvolvida para registrar e conhecer melhor os fãs da FURIA. O objetivo é captar dados essenciais de torcedores e permitir o envio de arquivos/documentos para simular um cadastro completo — criando uma base de dados rica e estruturada.
 
-Desenvolvido como parte do desafio técnico para a vaga de Assistente de Engenharia de Software na **FURIA Tech**, este projeto explora a integração de coleta de dados, validação de identidade via inteligência artificial e conexão com redes sociais, proporcionando uma visão 360° do fã.
+Este projeto foi desenvolvido como parte do processo seletivo para Assistente de Engenharia de Software da FURIA Tech.
+
+---
 
 ## 🎯 Funcionalidades
 
-### Cadastro de Fã:
-- Nome completo
-- Endereço
-- CPF
-- Interesses em e-sports, eventos e atividades
+- ✅ Formulário com campos essenciais:
+  - Nome, e-mail, CPF, endereço e interesses
+- ✅ Upload de documentos com preview de status
+- ✅ Estilização com tema **escuro + dourado**, alinhado à identidade visual da FURIA
+- ✅ Integração com backend Node.js (simulado via `multer`)
+- ✅ Feedback de sucesso ao usuário após o envio
 
-### Upload de Documentos:
-- Upload seguro e validação de identidade via AI (OCR/Reconhecimento).
+---
 
-### Integração com Redes Sociais:
-- Vinculação de perfis (Instagram, Twitter, etc).
-- Leitura de interações e páginas de interesse em e-sports.
+## 🛠️ Tecnologias Utilizadas
 
-### Validação de Links:
-- Análise automática de links fornecidos para confirmar conexão com o mundo dos e-sports.
+### 🧩 Frontend
+- React.js
+- CSS inline com tema FURIA
+- Fetch API (integração com backend)
 
-### Dashboard Pessoal:
-- Exibição dos dados coletados para o próprio usuário revisar.
+### 🧩 Backend
+- Node.js + Express
+- `multer` para upload de arquivos
+- Simulação de persistência via console/logs
 
-## 🧩 Tecnologias Utilizadas
+---
 
-- **Front-end:** React.js
-- **Back-end:** Node.js + Express
-- **Banco de Dados:** Firebase Firestore
-- **Upload de Documentos:** Firebase Storage
-- **Validação de Documentos e Links com IA:**
-  - Google Vision AI
-  - OpenAI API (análise semântica)
-- **Autenticação OAuth:**
-  - Instagram API
-  - Twitter API
-- **Hospedagem:** Render / Firebase Hosting
-- **Versionamento:** Git & GitHub
+## 🚀 Instalação e Execução
 
-## 🏗️ Estrutura do Projeto
+### 🔧 Backend
+
+1. Acesse a pasta `backend`:
+
+```bash
+cd know-your-fan/backend
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie o servidor:
+
+```bash
+node app.js
+```
+
+O servidor estará rodando em: `http://localhost:5000`
+
+---
+
+### 💻 Frontend
+
+1. Acesse a pasta `frontend`:
+
+```bash
+cd ../frontend
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie a aplicação:
+
+```bash
+npm start
+```
+
+O app abrirá em `http://localhost:3000`
+
+---
+
+## 📂 Estrutura do Projeto
 
 ```
 know-your-fan/
 ├── backend/
-│   ├── controllers/
-│   ├── routes/
-│   ├── services/
 │   ├── app.js
+│   └── uploads/
 ├── frontend/
+│   ├── public/
+│   │   └── Furia_Esports_logo.png
 │   ├── src/
 │   │   ├── components/
+│   │   │   └── UploadDocument.jsx
 │   │   ├── pages/
+│   │   │   └── Home.jsx
 │   │   ├── services/
-│   ├── package.json
-├── README.md
-└── docker-compose.yml (opcional para deploy local)
+│   │   │   └── api.js
+│   │   ├── App.jsx
+│   │   └── index.js
 ```
 
-## 🚀 Como Rodar o Projeto
+---
 
-### Pré-requisitos
-- Node.js (v18 ou superior)
-- NPM ou Yarn
-- Conta no Firebase
-- (Opcional) Conta no Google Cloud para Vision AI
+## 📸 Estilo Visual
 
-### Instalação
+- Tema dark com dourado metálico
+- Layout minimalista e centralizado
+- Upload destacado logo após o formulário
+- Logo da FURIA visível no topo
 
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/know-your-fan.git
+---
 
-# Acesse o backend
-cd know-your-fan/backend
-npm install
-npm run dev
+## 🤝 Contribuição
 
-# Em outra aba, acesse o frontend
-cd ../frontend
-npm install
-npm run start
-```
+Contribuições são bem-vindas!  
+Abra uma issue ou pull request para discutir melhorias ou reportar bugs.
 
-## 🎥 Demonstração em Vídeo
+---
 
-Assista como o fã pode registrar seu perfil completo em poucos minutos:  
-🔗 [Link para o vídeo no YouTube](#) (substituir pelo link final)
+## 📄 Licença
 
-## 📄 Referências e Inspirações
-
-- Estratégias de "Know Your Customer" (KYC) aplicadas ao universo de e-sports.
-- API Google Vision OCR.
-- OAuth 2.0 padrão para integração de redes sociais.
-
-## 👨‍💻 Autor
-
-Desenvolvido por **Matheus [Seu Sobrenome]**, entusiasta de tecnologia, inovação e fã de e-sports!  
-A cada desafio, um novo aprendizado. Let's FURIA! 🔥🐆
-
-## 🎯 Conclusão
-
-O **Know Your Fan** transforma dados em experiências personalizadas, ajudando a **FURIA** a se conectar de forma ainda mais próxima e verdadeira com seus fãs!
+Este projeto está licenciado sob os termos da MIT License.
