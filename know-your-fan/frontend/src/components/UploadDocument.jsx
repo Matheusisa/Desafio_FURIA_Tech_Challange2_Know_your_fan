@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { analyzeDocument } from '../services/ocr';
 
 const UploadDocument = () => {
   const [file, setFile] = useState(null);
   const [status, setStatus] = useState('');
+  const [ocrResult, setOcrResult] = useState('');
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -20,6 +22,10 @@ const UploadDocument = () => {
       const result = await response.json();
       if (result.success) {
         setStatus("Arquivo enviado com sucesso! ✅");
+
+        // Simula leitura do documento pelo "OCR"
+        const ocr = await analyzeDocument(file);
+        setOcrResult(ocr.text);
       } else {
         setStatus("Erro ao enviar o arquivo.");
       }
@@ -38,6 +44,7 @@ const UploadDocument = () => {
           style={{ display: 'block', marginTop: '10px', color: '#fff' }}
         />
       </label>
+
       <button type="submit" style={{
         marginTop: '10px',
         padding: '10px 20px',
@@ -50,9 +57,19 @@ const UploadDocument = () => {
       }}>
         Enviar Arquivo
       </button>
+
       {status && <p style={{ marginTop: '10px', color: '#fff' }}>{status}</p>}
+
+      {ocrResult && (
+        <p style={{ marginTop: '10px', color: '#FFD700' }}>
+          <strong>Resultado OCR (simulado):</strong><br />
+          {ocrResult}
+        </p>
+      )}
     </form>
   );
 };
-
+// Em um ambiente real, esta função enviaria o arquivo em base64    
+// para a Google Vision API, e retornaria os textos extraídos
+// Simulação de retorno do OCR
 export default UploadDocument;

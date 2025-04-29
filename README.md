@@ -119,6 +119,8 @@ Este projeto foi estruturado para comportar o upload de documentos via duas abor
 
 A aplicação pode ser facilmente conectada ao Firebase com um clique, bastando configurar o plano Spark com cartão de crédito.
 
+- ✅ Estrutura pronta para análise de documentos via IA (Google Vision API – OCR)
+- 🔍 Simulação implementada via função mock
 
 ## 📸 Estilo Visual
 
