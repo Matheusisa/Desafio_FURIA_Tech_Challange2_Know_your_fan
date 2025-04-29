@@ -13,3 +13,8 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
+app.post('/api/fans', (req, res) => {
+  console.log("Cadastro recebido:", req.body);
+  res.json({ success: true, message: "Fã cadastrado com sucesso!" });
+});

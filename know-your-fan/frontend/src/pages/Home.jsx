@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { postFanData } from '../services/api';
 
 const Home = () => {
   const [form, setForm] = useState({
@@ -13,9 +14,21 @@ const Home = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Dados enviados:', form);
+    const result = await postFanData(form);
+    if (result.success) {
+      alert("Cadastro enviado com sucesso!");
+      setForm({
+        name: '',
+        email: '',
+        cpf: '',
+        address: '',
+        interests: ''
+      });
+    } else {
+      alert("Erro ao enviar. Tente novamente.");
+    }
   };
 
   return (
