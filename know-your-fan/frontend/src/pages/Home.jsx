@@ -16,24 +16,28 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Dados enviados:', form);
-    // Aqui futuramente chamamos postFanData(form)
   };
 
   return (
     <div style={{
-      backgroundColor: '#121212',
+      backgroundColor: '#0d0d0d',
       minHeight: '100vh',
       color: '#fff',
-      padding: '30px'
+      padding: '30px',
+      fontFamily: 'Arial, sans-serif'
     }}>
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
         <img 
           src="/Furia_Esports_logo.png" 
           alt="Logo FURIA" 
           style={{ width: '100px', marginBottom: '10px' }} 
         />
-        <h1>Cadastro do Fã 🎮</h1>
-        <p>Mostre que você é FURIA até o fim! 🐆</p>
+        <h1 style={{
+          color: '#FFD700',
+          letterSpacing: '1px',
+          textShadow: '0 0 10px rgba(255, 215, 0, 0.5)'
+        }}>Cadastro do Fã</h1>
+        <p style={{ color: '#aaa' }}>Mostre que você é FURIA até o fim! 🐆</p>
       </div>
 
       <form 
@@ -46,62 +50,32 @@ const Home = () => {
           gap: '15px' 
         }}
       >
-        <input
-          type="text"
-          name="name"
-          placeholder="Nome completo"
-          value={form.name}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          value={form.email}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="text"
-          name="cpf"
-          placeholder="CPF"
-          value={form.cpf}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Endereço"
-          value={form.address}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+        {['name', 'email', 'cpf', 'address'].map((field) => (
+          <input
+            key={field}
+            type="text"
+            name={field}
+            placeholder={placeholders[field]}
+            value={form[field]}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+        ))}
+
         <textarea
           name="interests"
-          placeholder="Fale sobre seus interesses"
+          placeholder="Seus interesses no mundo dos games"
           value={form.interests}
           onChange={handleChange}
           rows="4"
           required
           style={{ ...inputStyle, resize: 'vertical' }}
         />
+
         <button 
           type="submit" 
-          style={{
-            backgroundColor: '#f00',
-            color: '#fff',
-            padding: '12px',
-            border: 'none',
-            borderRadius: '8px',
-            fontWeight: 'bold',
-            cursor: 'pointer'
-          }}
+          style={buttonStyle}
         >
           Enviar Cadastro
         </button>
@@ -110,13 +84,33 @@ const Home = () => {
   );
 };
 
-// Estilo padrão dos inputs
+const placeholders = {
+  name: "Nome completo",
+  email: "E-mail",
+  cpf: "CPF",
+  address: "Endereço"
+};
+
 const inputStyle = {
-  padding: '10px',
+  padding: '12px',
   borderRadius: '8px',
-  border: '1px solid #333',
-  backgroundColor: '#222',
-  color: '#fff'
+  border: '1px solid #FFD700',
+  backgroundColor: '#1a1a1a',
+  color: '#fff',
+  fontSize: '15px',
+  boxShadow: '0 0 4px rgba(255, 215, 0, 0.2)'
+};
+
+const buttonStyle = {
+  background: 'linear-gradient(90deg, #FFD700, #FFC300)',
+  color: '#000',
+  padding: '12px',
+  border: 'none',
+  borderRadius: '8px',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  cursor: 'pointer',
+  boxShadow: '0 0 10px rgba(255, 215, 0, 0.5)'
 };
 
 export default Home;
