@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import UploadDocument from '../components/UploadDocument';
 import { postFanData } from '../services/api';
 
 const Home = () => {
@@ -63,19 +64,42 @@ const Home = () => {
           gap: '15px' 
         }}
       >
-        {['name', 'email', 'cpf', 'address'].map((field) => (
-          <input
-            key={field}
-            type="text"
-            name={field}
-            placeholder={placeholders[field]}
-            value={form[field]}
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
-        ))}
-
+        <input
+          type="text"
+          name="name"
+          placeholder="Nome completo"
+          value={form.name}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          value={form.email}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="text"
+          name="cpf"
+          placeholder="CPF"
+          value={form.cpf}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="text"
+          name="address"
+          placeholder="Endereço"
+          value={form.address}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
         <textarea
           name="interests"
           placeholder="Seus interesses no mundo dos games"
@@ -85,7 +109,6 @@ const Home = () => {
           required
           style={{ ...inputStyle, resize: 'vertical' }}
         />
-
         <button 
           type="submit" 
           style={buttonStyle}
@@ -93,15 +116,11 @@ const Home = () => {
           Enviar Cadastro
         </button>
       </form>
+
+      {/* Upload de documento */}
+      <UploadDocument />
     </div>
   );
-};
-
-const placeholders = {
-  name: "Nome completo",
-  email: "E-mail",
-  cpf: "CPF",
-  address: "Endereço"
 };
 
 const inputStyle = {
