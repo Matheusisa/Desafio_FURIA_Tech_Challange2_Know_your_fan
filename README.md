@@ -106,6 +106,20 @@ know-your-fan/
 
 ---
 
+## ⚙️ Observações Técnicas
+
+Este projeto foi estruturado para comportar o upload de documentos via duas abordagens:
+
+1. **Upload Simulado (implementado)**: utilizando Node.js com `multer`, armazenando localmente os arquivos recebidos no backend.
+
+2. **Upload Real via Firebase Storage (preparado)**:
+   - A estrutura de autenticação e conexão (`firebase.js`) já foi implementada.
+   - A integração com o SDK do Firebase está pronta (`uploadBytes`, `getDownloadURL`).
+   - Por limitações de ambiente (requer ativação de faturamento no Firebase mesmo no plano gratuito), a funcionalidade foi documentada mas não ativada durante o desafio.
+
+A aplicação pode ser facilmente conectada ao Firebase com um clique, bastando configurar o plano Spark com cartão de crédito.
+
+
 ## 📸 Estilo Visual
 
 - Tema dark com dourado metálico
