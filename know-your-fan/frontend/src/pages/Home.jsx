@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import UploadDocument from '../components/UploadDocument';
 import { postFanData } from '../services/api';
 import SocialLink from '../components/SocialLink';
+import ProfileValidator from '../components/ProfileValidator';
+
 
 const Home = () => {
   const [form, setForm] = useState({
@@ -123,6 +125,8 @@ const Home = () => {
 
       <UploadDocument />
       <SocialLink />
+      <ProfileValidator />
+
 
     </div>
   );
