@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UploadDocument from '../components/UploadDocument';
 import { postFanData } from '../services/api';
+import SocialLink from '../components/SocialLink';
 
 const Home = () => {
   const [form, setForm] = useState({
@@ -121,6 +122,8 @@ const Home = () => {
       <div style={{ height: '40px' }} />
 
       <UploadDocument />
+      <SocialLink />
+
     </div>
   );
 };
