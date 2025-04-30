@@ -61,7 +61,7 @@ const Home = () => {
           margin: '0 auto', 
           display: 'flex', 
           flexDirection: 'column', 
-          gap: '15px' 
+          gap: '15px'
         }}
       >
         <input
@@ -117,7 +117,9 @@ const Home = () => {
         </button>
       </form>
 
-      {/* Upload de documento */}
+      {/* Espaçamento entre formulário e upload */}
+      <div style={{ height: '40px' }} />
+
       <UploadDocument />
     </div>
   );
@@ -130,7 +132,9 @@ const inputStyle = {
   backgroundColor: '#1a1a1a',
   color: '#fff',
   fontSize: '15px',
-  boxShadow: '0 0 4px rgba(255, 215, 0, 0.2)'
+  boxShadow: '0 0 4px rgba(255, 215, 0, 0.2)',
+  width: '100%',
+  boxSizing: 'border-box'
 };
 
 const buttonStyle = {
