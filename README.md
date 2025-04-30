@@ -1,21 +1,28 @@
 # 👤 Know Your Fan – Challenge 2
 
+Desafio técnico FURIA Tech – Assistente de Engenharia de Software  
+📁 Projeto completo com backend, frontend e simulações de IA
+
+---
+
 ## 🧠 Sobre o Projeto
 
-O **Know Your Fan** é uma aplicação desenvolvida para registrar e conhecer melhor os fãs da FURIA. O objetivo é captar dados essenciais de torcedores e permitir o envio de arquivos/documentos para simular um cadastro completo — criando uma base de dados rica e estruturada.
+O **Know Your Fan** é um sistema de cadastro de torcedores da FURIA, projetado para captar dados, arquivos e perfis sociais de fãs e simular uma análise via inteligência artificial.
 
-Este projeto foi desenvolvido como parte do processo seletivo para Assistente de Engenharia de Software da FURIA Tech.
+Esse desafio explora uma experiência de onboarding com **interatividade, upload, IA, e integrações simuladas com redes sociais**.
 
 ---
 
 ## 🎯 Funcionalidades
 
-- ✅ Formulário com campos essenciais:
-  - Nome, e-mail, CPF, endereço e interesses
-- ✅ Upload de documentos com preview de status
-- ✅ Estilização com tema **escuro + dourado**, alinhado à identidade visual da FURIA
-- ✅ Integração com backend Node.js (simulado via `multer`)
-- ✅ Feedback de sucesso ao usuário após o envio
+- ✅ Formulário completo: nome, e-mail, CPF, endereço, interesses
+- ✅ Upload de documentos com pré-visualização
+- ✅ Simulação de análise de documentos com IA (OCR)
+- ✅ Integração simulada com Firebase Storage (documentada)
+- ✅ Vinculação de redes sociais (OAuth simulado com Instagram, Twitter, TikTok)
+- ✅ Validação de perfis gamer com IA simulada (ex: Steam/Faceit)
+- ✅ Visual refinado: tema escuro + dourado, responsivo
+- ✅ Feedback visual (status, animações, alerts)
 
 ---
 
@@ -23,67 +30,18 @@ Este projeto foi desenvolvido como parte do processo seletivo para Assistente de
 
 ### 🧩 Frontend
 - React.js
-- CSS inline com tema FURIA
-- Fetch API (integração com backend)
+- `react-icons`
+- CSS inline + animações
+- Comunicação via `fetch`
 
 ### 🧩 Backend
 - Node.js + Express
 - `multer` para upload de arquivos
-- Simulação de persistência via console/logs
+- Simulação de persistência e resposta JSON
 
 ---
 
-## 🚀 Instalação e Execução
-
-### 🔧 Backend
-
-1. Acesse a pasta `backend`:
-
-```bash
-cd know-your-fan/backend
-```
-
-2. Instale as dependências:
-
-```bash
-npm install
-```
-
-3. Inicie o servidor:
-
-```bash
-node app.js
-```
-
-O servidor estará rodando em: `http://localhost:5000`
-
----
-
-### 💻 Frontend
-
-1. Acesse a pasta `frontend`:
-
-```bash
-cd ../frontend
-```
-
-2. Instale as dependências:
-
-```bash
-npm install
-```
-
-3. Inicie a aplicação:
-
-```bash
-npm start
-```
-
-O app abrirá em `http://localhost:3000`
-
----
-
-## 📂 Estrutura do Projeto
+## 📂 Estrutura de Pastas
 
 ```
 know-your-fan/
@@ -95,49 +53,81 @@ know-your-fan/
 │   │   └── Furia_Esports_logo.png
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── UploadDocument.jsx
+│   │   │   ├── UploadDocument.jsx
+│   │   │   ├── SocialLink.jsx
+│   │   │   └── ProfileValidator.jsx
 │   │   ├── pages/
 │   │   │   └── Home.jsx
 │   │   ├── services/
-│   │   │   └── api.js
+│   │   │   ├── api.js
+│   │   │   ├── ocr.js
+│   │   │   └── profileValidator.js
 │   │   ├── App.jsx
 │   │   └── index.js
 ```
 
 ---
 
-## ⚙️ Observações Técnicas
+## 🚀 Como Rodar o Projeto
 
-Este projeto foi estruturado para comportar o upload de documentos via duas abordagens:
+### 1. Backend
 
-1. **Upload Simulado (implementado)**: utilizando Node.js com `multer`, armazenando localmente os arquivos recebidos no backend.
+1. Acesse a pasta do backend:
+   ```bash
+   cd know-your-fan/backend
+   ```
 
-2. **Upload Real via Firebase Storage (preparado)**:
-   - A estrutura de autenticação e conexão (`firebase.js`) já foi implementada.
-   - A integração com o SDK do Firebase está pronta (`uploadBytes`, `getDownloadURL`).
-   - Por limitações de ambiente (requer ativação de faturamento no Firebase mesmo no plano gratuito), a funcionalidade foi documentada mas não ativada durante o desafio.
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-A aplicação pode ser facilmente conectada ao Firebase com um clique, bastando configurar o plano Spark com cartão de crédito.
+3. Inicie o servidor:
+   ```bash
+   node app.js
+   ```
 
-- ✅ Estrutura pronta para análise de documentos via IA (Google Vision API – OCR)
-- 🔍 Simulação implementada via função mock.
-
-## 📸 Estilo Visual
-
-- Tema dark com dourado metálico
-- Layout minimalista e centralizado
-- Upload destacado logo após o formulário
-- Logo da FURIA visível no topo
+   O servidor estará rodando em: `http://localhost:5000`
 
 ---
 
-## 🤝 Contribuição
+### 2. Frontend
 
-Contribuições são bem-vindas!  
-Abra uma issue ou pull request para discutir melhorias ou reportar bugs.
+1. Acesse a pasta do frontend:
+   ```bash
+   cd ../frontend
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Inicie a aplicação:
+   ```bash
+   npm start
+   ```
+
+   A aplicação estará disponível em: `http://localhost:3000`
+
+---
+
+## 🧪 Simulações de IA
+
+### 🧾 OCR (leitura de documentos)
+Após enviar o arquivo, o sistema simula uma leitura de texto e retorna um conteúdo extraído artificialmente.
+
+### 🎮 Validação de perfil e-sports
+Insira um link (ex: `https://steamcommunity.com/id/jogador123`) e o sistema simula uma análise via IA e retorna se é válido ou não.
+
+---
+
+## 📸 Capturas de Tela
+
+*(Adicione imagens do formulário, upload e integração social, se necessário.)*
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob os termos da MIT License.
+Projeto desenvolvido exclusivamente para fins de avaliação técnica no processo seletivo da FURIA Tech.
