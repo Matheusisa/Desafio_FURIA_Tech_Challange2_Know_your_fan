@@ -4,7 +4,6 @@ import { postFanData } from '../services/api';
 import SocialLink from '../components/SocialLink';
 import ProfileValidator from '../components/ProfileValidator';
 
-
 const Home = () => {
   const [form, setForm] = useState({
     name: '',
@@ -40,98 +39,104 @@ const Home = () => {
       backgroundColor: '#0d0d0d',
       minHeight: '100vh',
       color: '#fff',
-      padding: '30px',
-      fontFamily: 'Arial, sans-serif'
+      padding: '40px 20px',
+      fontFamily: 'Arial, sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
     }}>
-      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-        <img 
-          src="/Furia_Esports_logo.png" 
-          alt="Logo FURIA" 
-          style={{ width: '100px', marginBottom: '10px' }} 
-        />
-        <h1 style={{
-          color: '#FFD700',
-          letterSpacing: '1px',
-          textShadow: '0 0 10px rgba(255, 215, 0, 0.5)'
-        }}>Cadastro do Fã</h1>
-        <p style={{ color: '#aaa' }}>Mostre que você é FURIA até o fim! 🐆</p>
+      {/* Logo e título */}
+      <img 
+        src="/Furia_Esports_logo.png" 
+        alt="Logo FURIA" 
+        style={{ width: '80px', marginBottom: '10px' }} 
+      />
+      <h1 style={{
+        color: '#FFD700',
+        textShadow: '0 0 10px rgba(255, 215, 0, 0.5)',
+        letterSpacing: '1px',
+        marginBottom: '5px'
+      }}>
+        Cadastro do Fã
+      </h1>
+      <p style={{ color: '#aaa', marginBottom: '30px' }}>
+        Mostre que você é FURIA até o fim! 🐆
+      </p>
+
+      {/* Card: Formulário */}
+      <div style={card}>
+        <form 
+          onSubmit={handleSubmit}
+          style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Nome completo"
+            value={form.name}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            value={form.email}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="cpf"
+            placeholder="CPF"
+            value={form.cpf}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Endereço"
+            value={form.address}
+            onChange={handleChange}
+            required
+            style={inputStyle}
+          />
+          <textarea
+            name="interests"
+            placeholder="Seus interesses no mundo dos games"
+            value={form.interests}
+            onChange={handleChange}
+            rows="4"
+            required
+            style={{ ...inputStyle, resize: 'vertical' }}
+          />
+          <button type="submit" style={buttonStyle}>Enviar Cadastro</button>
+        </form>
       </div>
 
-      <form 
-        onSubmit={handleSubmit} 
-        style={{ 
-          maxWidth: '600px', 
-          margin: '0 auto', 
-          display: 'flex', 
-          flexDirection: 'column', 
-          gap: '15px'
-        }}
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Nome completo"
-          value={form.name}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          value={form.email}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="text"
-          name="cpf"
-          placeholder="CPF"
-          value={form.cpf}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Endereço"
-          value={form.address}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
-        <textarea
-          name="interests"
-          placeholder="Seus interesses no mundo dos games"
-          value={form.interests}
-          onChange={handleChange}
-          rows="4"
-          required
-          style={{ ...inputStyle, resize: 'vertical' }}
-        />
-        <button 
-          type="submit" 
-          style={buttonStyle}
-        >
-          Enviar Cadastro
-        </button>
-      </form>
+      {/* Cards separados */}
+      <div style={card}><UploadDocument /></div>
+      <div style={card}><SocialLink /></div>
+      <div style={card}><ProfileValidator /></div>
 
-      {/* Espaçamento entre formulário e upload */}
-      <div style={{ height: '40px' }} />
-
-      <UploadDocument />
-      <SocialLink />
-      <ProfileValidator />
-
-
+      {/* Rodapé */}
+      <footer style={{
+        textAlign: 'center',
+        color: '#555',
+        fontSize: '13px',
+        marginTop: '60px'
+      }}>
+        Desenvolvido por Matheus • FURIA Tech 2025 🐆
+      </footer>
     </div>
   );
 };
 
+// Estilo de inputs
 const inputStyle = {
   padding: '12px',
   borderRadius: '8px',
@@ -144,6 +149,7 @@ const inputStyle = {
   boxSizing: 'border-box'
 };
 
+// Estilo do botão
 const buttonStyle = {
   background: 'linear-gradient(90deg, #FFD700, #FFC300)',
   color: '#000',
@@ -153,7 +159,19 @@ const buttonStyle = {
   fontWeight: 'bold',
   fontSize: '16px',
   cursor: 'pointer',
-  boxShadow: '0 0 10px rgba(255, 215, 0, 0.5)'
+  boxShadow: '0 0 10px rgba(255, 215, 0, 0.5)',
+  transition: 'background 0.3s ease'
+};
+
+// Estilo base dos "cards"
+const card = {
+  backgroundColor: '#1a1a1a',
+  padding: '25px',
+  borderRadius: '12px',
+  boxShadow: '0 0 8px rgba(255,215,0,0.08)',
+  marginBottom: '30px',
+  width: '100%',
+  maxWidth: '600px'
 };
 
 export default Home;
